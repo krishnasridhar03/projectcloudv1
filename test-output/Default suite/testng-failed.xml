@@ -5,8 +5,8 @@
     <classes>
       <class name="testCases.Caseexecutor">
         <methods>
+          <include name="post"/>
           <include name="setup"/>
-          <include name="testMenuNavigation" invocation-numbers="0"/>
         </methods>
       </class> <!-- testCases.Caseexecutor -->
     </classes>

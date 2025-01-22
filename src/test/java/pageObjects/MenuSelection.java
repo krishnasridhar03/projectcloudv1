@@ -25,7 +25,7 @@ public class MenuSelection extends BasePage {
 	WebElement sort1;
 	@FindBy(xpath="//a[normalize-space()='Newest']")
 	WebElement sort2;
-	@FindBy(xpath="//a[normalize-space()='Women Solid Blue Flared Jeans']")
+	@FindBy(xpath="//body[1]/main[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/a[1]")
 	WebElement prdselecting;
 
 	public void prdmenusection() {
