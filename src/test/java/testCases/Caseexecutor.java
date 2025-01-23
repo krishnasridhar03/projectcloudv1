@@ -12,6 +12,7 @@ import adminscenarios.Blogdashboard;
 import adminscenarios.Blogmenu;
 import adminscenarios.Categoriesmenu;
 import adminscenarios.Editpost;
+import adminscenarios.Tagsmenu;
 import adminscenarios.logincase;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -20,6 +21,7 @@ public class Caseexecutor {
 	String psname="Ethnic wears";
 	String psupdtname="indian ethnic wears";
 	String cname="Metal Accesories";
+	String tname="Trendy";
 	
 	 @BeforeClass
 		public void setup() {
@@ -57,18 +59,18 @@ public class Caseexecutor {
 		 Adminhome pc= new Adminhome(driver);
 		 pc.popupbtn();
 	 }
-	 @Test(priority=3)
+	 @Test(priority=4)//(enabled = false)
 	 public void Blogpage() throws InterruptedException{
 		 Blogmenu bc= new Blogmenu(driver);
 		 bc.blogpage();
 		 bc.createbtn();
 	 }
-	 @Test(priority=4)
+	 @Test(priority=5)//(enabled = false)
 	 public void Blogpostcreation() throws InterruptedException{
 		 Blogmenu blogpost= new Blogmenu(driver);
-		 blogpost.Createpost(psname, "The rise of gender-neutral fashion is altering our perceptions of clothing.");
+		 blogpost.Createpost(psname, "The rise of gender-neutral fashion is altering our perceptions of clothing.",tname);
 	 }
-	 @Test(priority=5)
+	 @Test(priority=6)//(enabled = false)
 	 public void Blogpostdashboard() throws InterruptedException{
 		 Blogdashboard postdsbd= new Blogdashboard(driver);
 		 postdsbd.postdashboard(psname);
@@ -77,15 +79,20 @@ public class Caseexecutor {
 		 postdsbd.Filterpost(psupdtname);
 		 
 	 }
-	 @Test(priority=6)
+	 @Test(priority=7)//(enabled = false)
 	 public void Blogpostedit() {
 		 Editpost edpost= new Editpost(driver);
 		 edpost.Editexstpost();
 	 }
-	 @Test(priority=2)
+	 @Test(priority=2)//(enabled = false)
 	 public void Categoriespage() {
 		 Categoriesmenu cm= new Categoriesmenu(driver);
 		 cm.Categorypage(cname,"Metal accesories are the high selling product in website with exclusive offer");
+	 }
+	 @Test(priority=3)
+	 public void Tagspage() {
+		 Tagsmenu Tm= new Tagsmenu(driver);
+		 Tm.createtag(tname,"New trendy tag for brand new products..");
 	 }
 	 
 }
