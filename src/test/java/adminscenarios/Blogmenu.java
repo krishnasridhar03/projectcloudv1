@@ -29,20 +29,17 @@ public class Blogmenu extends BasePage {
 	WebElement contentimage;
 	@FindBy(xpath="//div[@title='1']")
 	WebElement image;
-	@FindBy(xpath="//*[@id=\'rv_media_body\']/div[1]/div[1]/div[1]/footer/button")
+	@FindBy(xpath="//button[normalize-space()='Insert']")
 	WebElement insertimage;
-	@FindBy(xpath="//*[@id=\'mCSB_1_container\']/ul/li[1]/label/input")
-	WebElement ecommcategory;
+	@FindBy(xpath="//label[normalize-space()='Metal Accesories']")
+	WebElement categorycheckbox;
 	@FindBy(xpath="//a[@class='btn_gallery']")
 	WebElement postimage;
 	@FindBy(xpath="//div[@title='baby']//div[@class='rv-media-thumbnail']")
 	WebElement postimgsel;
 	@FindBy(xpath="//*[@id=\'botble-blog-forms-post-form\']/div[2]/div[2]/div[3]/div/button[1]")
 	WebElement savebtn;
-	@FindBy(xpath="//input[@placeholder='Search...']")
-	WebElement searchopt;
-	@FindBy(linkText ="Ethnic wears")
-	WebElement searchdata;
+	
 
 	public void blogpage() {
 		js.executeScript("arguments[0].click();", blog);
@@ -62,24 +59,25 @@ public class Blogmenu extends BasePage {
 
 	}
 
-	public void Createpost(String name,String desc) {
+	public void Createpost(String name,String desc) throws InterruptedException {
 		postnamefield.sendKeys(name);
 		postdescfield.sendKeys(desc);
 		postslider.click();
 		contentimage.click();
 		image.click();
-		wait.until(ExpectedConditions.visibilityOf(insertimage)).click();
-		WebElement category=  wait.until(ExpectedConditions.visibilityOf(ecommcategory));
+		js.executeScript("arguments[0].scrollIntoView(true);",insertimage);
+		js.executeScript("arguments[0].click();",insertimage);
+		Thread.sleep(2000);
+		WebElement category=  wait.until(ExpectedConditions.visibilityOf(categorycheckbox));
 		js.executeScript("arguments[0].scrollIntoView(true);",category);
 		js.executeScript("arguments[0].click();",category);
+		Thread.sleep(2000);
 		js.executeScript("arguments[0].click();",postimage);
 		js.executeScript("arguments[0].click();",postimgsel);
-		wait.until(ExpectedConditions.visibilityOf(insertimage)).click();
+		js.executeScript("arguments[0].scrollIntoView(true);",insertimage);
+		js.executeScript("arguments[0].click();",insertimage);
 		js.executeScript("arguments[0].click();",savebtn);
 	} 
 
-	public void postdashboard(String psname) {
-       searchopt.sendKeys(psname);
-       searchdata.equals(psname);
-	}
+	
 }

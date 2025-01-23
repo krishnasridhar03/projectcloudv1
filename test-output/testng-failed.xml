@@ -5,8 +5,10 @@
     <classes>
       <class name="testCases.Caseexecutor">
         <methods>
-          <include name="post"/>
+          <include name="Blogpostcreation"/>
+          <include name="Blogpostedit"/>
           <include name="setup"/>
+          <include name="Blogpostdashboard"/>
         </methods>
       </class> <!-- testCases.Caseexecutor -->
     </classes>
