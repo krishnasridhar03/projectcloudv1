@@ -93,6 +93,7 @@ public class Caseexecutor {
 	 public void Tagspage() {
 		 Tagsmenu Tm= new Tagsmenu(driver);
 		 Tm.createtag(tname,"New trendy tag for brand new products..");
+		 
 	 }
 	 
 }
